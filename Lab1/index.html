@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="index.css">
+    <title>Twitter</title>
+  </head>
+  <body>
+    <!-- TODO: Create HTML elements for Twitter mockup inside body -->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>  
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/js/all.min.js" integrity="sha256-qM7QTJSlvtPSxVRjVWNM2OfTAz/3k5ovHOKmKXuYMO4=" crossorigin="anonymous"></script>
+    
+    <ul class="skip-links">
+      <li><a href="#main">Skip to the main content</a></li>
+    </ul>
+  
+    <div class="header navbar-centered" role="navigation">
+      <div class="navButtons">
+        <button class="link">
+          <i class="fas fa-home"></i>
+          <span class="button-text">Home</span>
+        </button>
+        <button class="link">
+          <i class="fas fa-hashtag"></i>
+          <span class="button-text">Moments</span>
+        </button>
+        <button class="link">  
+          <i class="far fa-bell"></i>
+          <span class="button-text">Notifications</span>
+        </button>
+        <button class="link">
+          <i class="far fa-envelope"></i>
+          <span class="button-text">Messages</span>
+        </button>
+      </div>
+      <div class="logo">
+        <img src="images\twitter-logo.png" alt="Twitter logo of a Blue Bird" width="30" height="30">
+      </div>
+      <div class="tweetWrapper">
+        <button class="tweet-button">Tweet</button>
+      </div>
+    </div>
+    
+    <div class = "centered">
+
+      <!-- Container with user social info -->
+
+      <div class="Container space-around" role="main" id="main">
+        <div class="socials">
+          <div class="banner space-around align-items">
+            <img src= "images\ratatouille-banner.png" alt="Banner Picture saying Ratatouille" class="bannerIMG">
+          </div>
+          <div class="profilePicture">
+            <img src= "images\ratatouille.jpg" alt="Profile Picture of Remy the Rat" class="avatarIMG">
+            <div class="float_right">
+              <p class="twitter_handle"><b>Remy</b>
+              <p class="twitter_at grey">@remy</p>
+            </div>
+          </div>
+          <div class="stats">
+            <table>
+              <thead>
+                <tr><br></tr>
+              </thead>
+              <thead>
+                  <tr class="grey">
+                      <th>Tweets</th>
+                      <th>Following</th>
+                      <th>Followers</th>
+                  </tr>
+              </thead>
+              <tbody>
+                  <tr class="blue">
+                      <td>5049</td>
+                      <td>324</td>
+                      <td>809</td>
+                  </tr>
+              </tbody>
+            </table> 
+          </div>
+        </div>
+
+        <!-- Timeline containing user's published tweets -->
+
+        <div class="timeline" role="main">
+          <div class="tweet">
+            <img src= "images\ratatouille.jpg" alt="Profile Picture of Remy the Rat" class="tweetIMG">
+            <p class="tweetUserInfo"><b>Remy</b> <span style="color: grey">@remy Nov 19</span></p>
+            <p class="tweetText">I'm taking this class called <span style="font-weight:bold"> CS110</span> and the TAs are all so cool!</p>
+          </div>
+          <div class="tweet">
+            <img src= "images\ratatouille.jpg" alt="Profile Picture of Remy the Rat" class="tweetIMG">
+            <p class="tweetUserInfo"><b>Remy</b> <span style="color: grey">@remy Nov 19</span></p>
+            <p class="tweetText">It's 2007. You just got home from elementary school. Your mom has pizza bagels in the oven. Ratatouille is in theaters. Life is good.</p>
+          </div>
+          <div class="tweet">
+            <img src= "images\ratatouille.jpg" alt="Profile Picture of Remy the Rat" class="tweetIMG">
+            <p class="tweetUserInfo"><b>Remy</b> <span style="color: grey">@remy Nov 19</span></p>
+            <p class="tweetText">Let's make some pasta!</p>
+          </div>
+          <div class="tweet">
+            <img src= "images\ratatouille.jpg" alt="Profile Picture of Remy the Rat" class="tweetIMG">
+            <p class="tweetUserInfo"><b>Remy</b> <span style="color: grey">@remy Nov 19</span></p>
+            <p class="tweetText">Let's make some pasta!</p>
+          </div>
+          <div class="tweet">
+            <img src= "images\ratatouille.jpg" alt="Profile Picture of Remy the Rat" class="tweetIMG">
+            <p class="tweetUserInfo"><b>Remy</b> <span style="color: grey">@remy Nov 19</span></p>
+            <p class="tweetText">Let's make some pasta!</p>
+          </div> 
+          <div class="tweet">
+            <img src= "images\ratatouille.jpg" alt="Profile Picture of Remy the Rat" class="tweetIMG">
+            <p class="tweetUserInfo"><b>Remy</b> <span style="color: grey">@remy Nov 19</span></p>
+            <p class="tweetText">I'm taking this class called <span style="font-weight:bold"> CS110</span> and the TAs are all so cool!</p>
+          </div>
+          <div class="tweet">
+            <img src= "images\ratatouille.jpg" alt="Profile Picture of Remy the Rat" class="tweetIMG">
+            <p class="tweetUserInfo"><b>Remy</b> <span style="color: grey">@remy Nov 19</span></p>
+            <p class="tweetText">It's 2007. You just got home from elementary school. Your mom has pizza bagels in the oven. Ratatouille is in theaters. Life is good.</p>
+          </div>
+          <div class="tweet">
+            <img src= "images\ratatouille.jpg" alt="Profile Picture of Remy the Rat" class="tweetIMG">
+            <p class="tweetUserInfo"><b>Remy</b> <span style="color: grey">@remy Nov 19</span></p>
+            <p class="tweetText">Let's make some pasta!</p>
+          </div>
+          <div class="tweet">
+            <img src= "images\ratatouille.jpg" alt="Profile Picture of Remy the Rat" class="tweetIMG">
+            <p class="tweetUserInfo"><b>Remy</b> <span style="color: grey">@remy Nov 19</span></p>
+            <p class="tweetText">Let's make some pasta!</p>
+          </div>
+          <div class="tweet">
+            <img src= "images\ratatouille.jpg" alt="Profile Picture of Remy the Rat" class="tweetIMG">
+            <p class="tweetUserInfo"><b>Remy</b> <span style="color: grey">@remy Nov 19</span></p>
+            <p class="tweetText">Let's make some pasta!</p>
+          </div>     
+        </div>
+
+        <!-- Recommendation for Who to Follow -->
+
+        <div class="recommendations" role="main">
+          <div class="tweet">
+            <h2 class="recommendationHeader"><b>Who to Follow</b></h2>
+            <img src="images\linguini.png" alt="Profile picture for the chef of Linguini" class="tweetIMG">
+            <p class="recommendationText"><b>Linguini</b> <span style="color: grey">@linguini Nov 19</span></p>
+            <button class="followButton"><b>Follow</b></button>
+          </div>
+          <div class="tweet">
+            <img src= "images\ratatouille.jpg" alt="Profile Picture of Remy the Rat" class="tweetIMG">
+            <p class="recommendationText"><b>CS110 TA</b> <span style="color: grey">@CS110 Nov 19</span></p>
+            <button class="followButton"><b>Follow</b></button>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+      
+  </body>
+</html>

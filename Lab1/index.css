@@ -1,0 +1,283 @@
+/* Feel free to edit CSS of body if you'd like. We provide you the light gray background color and font family in the body styling */
+body {
+  font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+  margin: 0;
+  background-color: #E6ECF0;
+}
+
+.skip-links {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+
+.skip-links a{
+  position: absolute;
+  top: -3em;
+}
+
+.skip-links a:focus {
+  top: 0;
+}
+/* Header CSS*/
+
+.header {
+  position: fixed;
+  height: 46px;
+  width: 100vw;
+  top: 0; 
+  left: 0; 
+  right: 0;
+  z-index: 100;
+  background-color: white;
+  /* border: solid 1px pink; */
+}
+
+.navButtons {
+  margin-top: 10px;
+  margin-left: 200px;
+  margin-right: auto;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+.logo {
+  position: absolute;
+  /* margin-right: auto;
+  margin-left: auto; */
+  margin-top: 5px;
+}
+
+.tweetWrapper {
+  margin-left: auto;
+  margin-right: 200px;
+  margin-top: 8px;
+}
+/* .navbar.center .navbar-inner {
+  text-align: center;
+}
+
+.navbar.center .navbar-inner .nav {
+  display:inline-block;
+  float: none;
+}
+
+.navbar {
+  position:fixed;
+  top:0;
+  right:0;
+  left:0;
+  height:46px;
+  z-index: 100;
+}
+.navbar-custom {
+  background-color: lightgreen;
+}
+.navbar-brand {
+  margin-right: 42%;
+} */
+
+.tweet-button {
+  border-radius: 12px;
+  height: 30px;
+  width: 65px;
+  background-color: deepskyblue;
+  color: white;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-weight: bold;
+  border: none;
+}
+.navbar-centered {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.centered {
+  display: flex;
+  justify-content: center;
+}
+button:hover {
+  color: lightblue;
+  text-decoration: underline;
+}
+.space-around {
+  display: flex;
+  justify-content: space-around;
+}
+.align-items {
+  align-items: center;
+}
+.columns {
+  display: flex;
+  flex-direction: column;
+}
+.flex {
+  display: flex;
+}
+.link {
+  background: none;
+  border: none;
+  font-size: 15px;
+  color: grey;
+  font-weight: bold;
+}
+
+/* Container CSS */
+.Container {
+  position: relative;
+  width: 1190px;
+  max-width: 1190px;
+  /* height: 1000px; */
+  margin: 56px auto;
+  background-color: #E6ECF0;
+  /* border: solid 1px green; */
+}
+
+.socials {
+  /* position: absolute; */
+  grid-template-columns: 10% 10% 10% 10% 10%;
+  grid-template-rows: 10% 10% 10% 10% 10%;
+  grid-column-gap: 3px;
+  display:grid;
+  height: 200px;
+  width: 290px;
+  /* border: solid 1px pink; */
+  background-color: white;
+}
+
+.banner {
+  position: absolute;
+  z-index: 1;
+  margin-bottom: 1;
+  margin-top: 1;
+  height: 80px;
+  width: 290px;
+  background-color: black;
+  /* border: solid 1px red; */
+}
+.profilePicture {
+  position: absolute;
+  z-index: 1;
+  height: 200px;
+  width: 290px;
+  margin-top: 55px;
+  margin-left: 15px;
+  /* border: solid 1px orange; */
+}
+.twitter_handle {
+  grid-column-start: 4;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+.stats {
+  z-index: 1;
+  grid-column-start: 2;
+  grid-row: 6;
+  width: 220px;
+  height: 172px;
+  left: 8%;
+  /* border: solid 1px green; */
+  margin-top: 20px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+.blue {
+  color: deepskyblue;
+}
+.grey {
+  color: gray
+}
+.float_right {
+  margin-left: 90px;
+  margin-top: -45px;
+}
+.twitter_at {
+  margin-top: -15px;
+}
+.avatarIMG {
+  border-radius:50%;
+  
+  width: 70px;
+  height: 70px;
+  border: 2px solid white;
+}
+.bannerIMG {
+  max-width: 65%;
+  max-height: 65%;
+}
+
+.timeline {
+  /* height: 620px; */
+  width: 550px;
+  background-color: white;
+  /* border: solid 1px orange; */
+  
+}
+
+.tweet {
+  min-height: 51px;
+  border-bottom: solid 1px lightgrey;
+}
+
+.tweetUserInfo{
+  float: right;
+  margin-top: 10px;
+  margin-right: 325px;
+}
+.tweetIMG {
+  border-radius: 50%;
+  width: 48px;
+  height: 48px;
+  margin-left: 10px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+.tweetText {
+  position: relative;
+  margin-top: 10px;
+  margin-left: 70px;
+  bottom: 40px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+.recommendations {
+  height: 240px;
+  width: 290px;
+  background-color: white;
+  /* border: solid 1px orange; */
+}
+
+.recommendationHeader {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  margin-top: 10px;
+  margin-left: 10px;
+}
+
+.recommendationText {
+  position: relative;
+  margin-left: 70px;
+  bottom: 65px;
+  margin-bottom: -40px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.followButton {
+  position: relative;
+  bottom: 20px;
+  margin-left: 68px;
+  border-radius: 12px;
+  height: 30px;
+  width: 65px;
+  background-color: white;
+  color: deepskyblue;
+  border: solid 1px deepskyblue;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+@media all and (max-width: 1200px) {
+  .recommendations { display: none; }
+}
+
+@media all and (max-width: 1000px) {
+  .button-text { display: none; }
+}
+
+
+
+/* TODO: Create CSS for your Twitter Mockup */
+ 
