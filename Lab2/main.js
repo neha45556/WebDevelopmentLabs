@@ -1,4 +1,4 @@
-const winningCombinations = [
+var winningCombinations = [
     // Column Wins
     [1, 2, 3],
     [4, 5, 6],
@@ -10,7 +10,7 @@ const winningCombinations = [
     // Diagonal Wins
     [1, 5, 9],
     [3, 5, 7]
-]
+];
 
 let userStatus = true;
 let defaultPlayer = "X";  
@@ -59,7 +59,7 @@ TicTacToeBox1.addEventListener('click', e => {
     currentY.sort(function(a, b){return a - b});
     console.log(currentX);
     console.log(currentY);
-    // isWinner();
+    isWinner();
 })
 
 TicTacToeBox2.addEventListener('click', e => {
@@ -82,6 +82,7 @@ TicTacToeBox2.addEventListener('click', e => {
     currentY.sort(function(a, b){return a - b});
     console.log(currentX);
     console.log(currentY);
+    isWinner()
 })
 
 TicTacToeBox3.addEventListener('click', e => {
@@ -104,6 +105,7 @@ TicTacToeBox3.addEventListener('click', e => {
     currentY.sort(function(a, b){return a - b});
     console.log(currentX);
     console.log(currentY);
+    isWinner()
 })
 
 TicTacToeBox4.addEventListener('click', e => {
@@ -126,6 +128,7 @@ TicTacToeBox4.addEventListener('click', e => {
     currentY.sort(function(a, b){return a - b});
     console.log(currentX);
     console.log(currentY);
+    isWinner();
 })
 
 TicTacToeBox5.addEventListener('click', e => {
@@ -148,6 +151,7 @@ TicTacToeBox5.addEventListener('click', e => {
     currentY.sort(function(a, b){return a - b});
     console.log(currentX);
     console.log(currentY);
+    isWinner();
 })
 
 TicTacToeBox6.addEventListener('click', e => {
@@ -170,6 +174,7 @@ TicTacToeBox6.addEventListener('click', e => {
     currentY.sort(function(a, b){return a - b});
     console.log(currentX);
     console.log(currentY);
+    isWinner();
 })
 
 TicTacToeBox7.addEventListener('click', e => {
@@ -192,6 +197,7 @@ TicTacToeBox7.addEventListener('click', e => {
     currentY.sort(function(a, b){return a - b});
     console.log(currentX);
     console.log(currentY);
+    isWinner();
 })
 
 TicTacToeBox8.addEventListener('click', e => {
@@ -214,6 +220,7 @@ TicTacToeBox8.addEventListener('click', e => {
     currentY.sort(function(a, b){return a - b});
     console.log(currentX);
     console.log(currentY);
+    isWinner();
 })
 
 TicTacToeBox9.addEventListener('click', e => {
@@ -236,24 +243,100 @@ TicTacToeBox9.addEventListener('click', e => {
     currentY.sort(function(a, b){return a - b});
     console.log(currentX);
     console.log(currentY);
+    isWinner();
 })
 
 
-function startGame() {
-    console.log("Resetting Board");
+function newGame() {
+    console.log("Clearing for a new board");
+    
+    TicTacToeBox1.classList.remove("markX");
+    TicTacToeBox2.classList.remove("markX");
+    TicTacToeBox3.classList.remove("markX");
+    TicTacToeBox4.classList.remove("markX");
+    TicTacToeBox5.classList.remove("markX");
+    TicTacToeBox6.classList.remove("markX");
+    TicTacToeBox7.classList.remove("markX");
+    TicTacToeBox8.classList.remove("markX");
+    TicTacToeBox9.classList.remove("markX");
+
+    TicTacToeBox1.classList.remove("markCircle");
+    TicTacToeBox2.classList.remove("markCircle");
+    TicTacToeBox3.classList.remove("markCircle");
+    TicTacToeBox4.classList.remove("markCircle");
+    TicTacToeBox5.classList.remove("markCircle");
+    TicTacToeBox6.classList.remove("markCircle");
+    TicTacToeBox7.classList.remove("markCircle");
+    TicTacToeBox8.classList.remove("markCircle");
+    TicTacToeBox9.classList.remove("markCircle");
+
+    currentX = [];
+    currentY = [];
+    userStatus = true;
+    document.getElementById("currentPlayer").innerHTML = defaultPlayer;
 }
 
 function resetGame() {
-    console.log("Resetting both players' scores")
+    console.log("Resetting both players' scores");
     playerX = 0;
     playerY = 0;
     document.getElementById("scoreX").innerHTML = "X: " + playerX;
     document.getElementById("scoreY").innerHTML = "Y: " + playerY;
     console.log(playerX);
     console.log(playerY);
-    startGame();
+    newGame();
 }
 
+function isWinner() {
+    console.log("Checking for winner");
+    let movesMade = currentX.length + currentY.length;
+    if (movesMade == 9) {
+        console.log("Draw, starting new game.");
+        newGame();
+    } else {
+        for (var i = 0; i < winningCombinations.length; i++) {
+            console.log("Iterate through combinations!");
+            if (checkArrayEqual(currentX, winningCombinations[i])) {
+                console.log("Player X wins!");
+                playerX++;
+                document.getElementById("scoreX").innerHTML = "X: " + playerX;
+                newGame();
+            } else if (checkArrayEqual(currentY, winningCombinations[i])) {
+                console.log("Player O wins!");
+                playerY++;
+                document.getElementById("scoreY").innerHTML = "Y: " + playerY;
+                newGame();
+            } 
+        }    
+    }
+}
+
+// const equalsIgnoreOrder = (a, b) => {
+//     if (a.length !== b.length) return false;
+//     const uniqueValues = new Set([...a, ...b]);
+//     for (const v of uniqueValues) {
+//         const aCount = a.filter(e => e === v).length;
+//         const bCount = b.filter(e => e === v).length;
+//         if (aCount !== bCount) return false;
+//     }
+//     return true;
+// }
+function checkArrayEqual(playerMoves, winningCombination) {
+    if (playerMoves === winningCombination) return true;
+    if (playerMoves == null || winningCombination == null) return false;
+    var numMatches = 0; 
+    for (var i = 0; i < playerMoves.length; ++i) {
+        for (var j = 0; j < winningCombination.length; ++j) {
+            if (playerMoves[i] === winningCombination[j]) {
+                numMatches++;
+            }
+        }
+        if (numMatches == 3) {
+            return true;
+        }
+    }
+    return false;
+}
 // function placeMark() {
 //     console.log("hello");
 //     var element = document.getElementById("one");
