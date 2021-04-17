@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Tic Tac Toe Game</title>
+    
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+
+    <h1>Tic Tac Toe</h1>
+    <p id="scoreX"></p>
+    <p id="scoreY"></p>
+    <div>
+      <h2>Its your turn: <span class="display_player" id="currentPlayer"></span>.</h2>
+    </div>
+
+    <div class="game_board">
+      <div class="row">
+        <div class="one" id="one"><span class="xo"></span> </div>
+        <div class="two" id="two"><span class="xo"></span></div>
+        <div class="three" id="three"><span class="xo"></span></div>
+      </div>
+      <div class="row">
+        <div class="four" id="four"><span class="xo"></span></div>
+        <div class="five" id="five"><span class="xo"></span></div>
+        <div class="six" id="six"><span class="xo"></span></div>
+      </div>
+      <div class="row">
+        <div class="seven" id="seven"><span class="xo"></span></div>
+        <div class="eight" id="eight"><span class="xo"></span></div>
+        <div class="nine" id="nine"><span class="xo"></span></div>
+      </div>
+    </div>
+
+    <button class="new_game" onclick="startGame()">New Game</button>
+    <button class="reset" onclick="resetGame()">Reset</button>
+
+    <script src="main.js"></script>
+  </body>
+
+
+</html>
