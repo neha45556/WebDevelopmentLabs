@@ -290,27 +290,32 @@ function resetGame() {
 function isWinner() {
     console.log("Checking for winner");
     let movesMade = currentX.length + currentY.length;
-    if (movesMade == 9) {
-        console.log("Draw, starting new game.");
-        newGame();
-    } else {
-        for (var i = 0; i < winningCombinations.length; i++) {
-            console.log("Iterate through combinations!");
-            if (checkArrayEqual(currentX, winningCombinations[i])) {
-                console.log("Player X wins!");
-                playerX++;
-                document.getElementById("scoreX").innerHTML = "X: " + playerX;
-                newGame();
-            } else if (checkArrayEqual(currentY, winningCombinations[i])) {
-                console.log("Player O wins!");
-                playerY++;
-                document.getElementById("scoreY").innerHTML = "Y: " + playerY;
-                newGame();
-            } 
-        }    
+    if (movesMade != 9) {
+        checkSolution();
+    }   else {
+            checkSolution();
+            console.log("Draw, starting new game.");
+            newGame();
     }
+   
 }
 
+function checkSolution() { 
+    for (var i = 0; i < winningCombinations.length; i++) {
+        console.log("Iterate through combinations!");
+        if (checkArrayEqual(currentX, winningCombinations[i])) {
+            console.log("Player X wins!");
+            playerX++;
+            document.getElementById("scoreX").innerHTML = "X: " + playerX;
+            newGame();
+        } else if (checkArrayEqual(currentY, winningCombinations[i])) {
+            console.log("Player O wins!");
+            playerY++;
+            document.getElementById("scoreY").innerHTML = "Y: " + playerY;
+            newGame();
+        } 
+    }    
+}
 // const equalsIgnoreOrder = (a, b) => {
 //     if (a.length !== b.length) return false;
 //     const uniqueValues = new Set([...a, ...b]);
