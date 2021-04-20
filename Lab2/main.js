@@ -12,11 +12,13 @@ var winningCombinations = [
     [3, 5, 7]
 ];
 
+
 let possibleSquares = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 let illegalSquares = new Array();
 
 let checkAiGame = false; 
 let userStatus = true;
+let gameOver = false;
 let defaultPlayer = "X";  
 // If userStatus is true place X
 // If userStatus is false place Circle
@@ -89,6 +91,12 @@ function placeX(location, id) {
     console.log(userStatus);
     currentX.push(location);
     illegalSquares.push(location);
+    currentX.sort(function(a, b){return a - b});
+    currentY.sort(function(a, b){return a - b});
+    illegalSquares.sort(function(a, b){return a - b});
+    console.log(currentX);
+    console.log(currentY);
+    isWinner();
 }
 
 function placeCircle(location, id) {
@@ -99,6 +107,12 @@ function placeCircle(location, id) {
     console.log(userStatus);
     currentY.push(location);
     illegalSquares.push(location);
+    currentX.sort(function(a, b){return a - b});
+    currentY.sort(function(a, b){return a - b});
+    illegalSquares.sort(function(a, b){return a - b});
+    console.log(currentX);
+    console.log(currentY);
+    isWinner();
 }
 function aiGame() {
     if (illegalSquares.length == 0) {
@@ -119,25 +133,19 @@ TicTacToeBox1.addEventListener('click', e => {
         console.log("Place mark");
         if (userStatus) {
             placeX(1, "one");
-            if (checkAiGame) {
+            if (checkAiGame && !gameOver) {
                 let move = randomMove();
                 let id = toString(move);
                 placeCircle(move, id);
             }
         } else { 
             placeCircle(1, "one");
-            if (checkAiGame) {
+            if (checkAiGame && !gameOver) {
                 let move = randomMove();
                 let id = toString(move);
                 placeX(move, id);
             }
         }
-        currentX.sort(function(a, b){return a - b});
-        currentY.sort(function(a, b){return a - b});
-        illegalSquares.sort(function(a, b){return a - b});
-        console.log(currentX);
-        console.log(currentY);
-        isWinner();
     }   
 })
 
@@ -149,26 +157,20 @@ TicTacToeBox2.addEventListener('click', e => {
         console.log("Place mark");
         if (userStatus) {
             placeX(2, "two");
-            if (checkAiGame) {
+            if (checkAiGame && !gameOver) {
                 let move = randomMove();
                 let id = toString(move);
                 placeCircle(move, id);
             }
         } else { 
             placeCircle(2, "two");
-            if (checkAiGame) {
+            if (checkAiGame && !gameOver) {
                 let move = randomMove();
                 let id = toString(move);
                 placeX(move, id);
             }
         }
-        currentX.sort(function(a, b){return a - b});
-        currentY.sort(function(a, b){return a - b});
-        illegalSquares.sort(function(a, b){return a - b});
-        console.log(currentX);
-        console.log(currentY);
-        isWinner();
-    }
+    }   
 })
 
 TicTacToeBox3.addEventListener('click', e => {
@@ -179,25 +181,19 @@ TicTacToeBox3.addEventListener('click', e => {
         console.log("Place mark");
         if (userStatus) {
             placeX(3, "three");
-            if (checkAiGame) {
+            if (checkAiGame && !gameOver) {
                 let move = randomMove();
                 let id = toString(move);
                 placeCircle(move, id);
             }
         } else { 
             placeCircle(3, "three");
-            if (checkAiGame) {
+            if (checkAiGame && !gameOver) {
                 let move = randomMove();
                 let id = toString(move);
                 placeX(move, id);
             }
         }
-        currentX.sort(function(a, b){return a - b});
-        currentY.sort(function(a, b){return a - b});
-        illegalSquares.sort(function(a, b){return a - b});
-        console.log(currentX);
-        console.log(currentY);
-        isWinner();
     }
 })
 
@@ -209,25 +205,19 @@ TicTacToeBox4.addEventListener('click', e => {
         console.log("Place mark");
         if (userStatus) {
             placeX(4, "four");
-            if (checkAiGame) {
+            if (checkAiGame && !gameOver) {
                 let move = randomMove();
                 let id = toString(move);
                 placeCircle(move, id);
             }
         } else { 
             placeCircle(4, "four");
-            if (checkAiGame) {
+            if (checkAiGame && !gameOver) {
                 let move = randomMove();
                 let id = toString(move);
                 placeX(move, id);
             }
         }
-        currentX.sort(function(a, b){return a - b});
-        currentY.sort(function(a, b){return a - b});
-        illegalSquares.sort(function(a, b){return a - b});
-        console.log(currentX);
-        console.log(currentY);
-        isWinner();
     }
 })
 
@@ -239,25 +229,19 @@ TicTacToeBox5.addEventListener('click', e => {
         console.log("Place mark");
         if (userStatus) {
             placeX(5, "five");
-            if (checkAiGame) {
+            if (checkAiGame && !gameOver) {
                 let move = randomMove();
                 let id = toString(move);
                 placeCircle(move, id);
             }
         } else { 
             placeCircle(5, "five");
-            if (checkAiGame) {
+            if (checkAiGame && !gameOver) {
                 let move = randomMove();
                 let id = toString(move);
                 placeX(move, id);
             }
         }
-        currentX.sort(function(a, b){return a - b});
-        currentY.sort(function(a, b){return a - b});
-        illegalSquares.sort(function(a, b){return a - b});
-        console.log(currentX);
-        console.log(currentY);
-        isWinner();
     }
 })
 
@@ -269,25 +253,19 @@ TicTacToeBox6.addEventListener('click', e => {
         console.log("Place mark");
         if (userStatus) {
             placeX(6, "six");
-            if (checkAiGame) {
+            if (checkAiGame && !gameOver) {
                 let move = randomMove();
                 let id = toString(move);
                 placeCircle(move, id);
             }
         } else { 
             placeCircle(6, "six");
-            if (checkAiGame) {
+            if (checkAiGame && !gameOver) {
                 let move = randomMove();
                 let id = toString(move);
                 placeX(move, id);
             }
         }
-        currentX.sort(function(a, b){return a - b});
-        currentY.sort(function(a, b){return a - b});
-        illegalSquares.sort(function(a, b){return a - b});
-        console.log(currentX);
-        console.log(currentY);
-        isWinner();
     }
 })
 
@@ -299,25 +277,19 @@ TicTacToeBox7.addEventListener('click', e => {
         console.log("Place mark");
         if (userStatus) {
             placeX(7, "seven");
-            if (checkAiGame) {
+            if (checkAiGame && !gameOver) {
                 let move = randomMove();
                 let id = toString(move);
                 placeCircle(move, id);
             }
         } else { 
             placeCircle(7, "seven");
-            if (checkAiGame) {
+            if (checkAiGame && !gameOver) {
                 let move = randomMove();
                 let id = toString(move);
                 placeX(move, id);
             }
         }
-        currentX.sort(function(a, b){return a - b});
-        currentY.sort(function(a, b){return a - b});
-        illegalSquares.sort(function(a, b){return a - b});
-        console.log(currentX);
-        console.log(currentY);
-        isWinner();
     }
 })
 
@@ -329,25 +301,19 @@ TicTacToeBox8.addEventListener('click', e => {
         console.log("Place mark");
         if (userStatus) {
             placeX(8, "eight");
-            if (checkAiGame) {
+            if (checkAiGame && !gameOver) {
                 let move = randomMove();
                 let id = toString(move);
                 placeCircle(move, id);
             }
         } else { 
             placeCircle(8, "eight");
-            if (checkAiGame) {
+            if (checkAiGame && !gameOver) {
                 let move = randomMove();
                 let id = toString(move);
                 placeX(move, id);
             }
         }
-        currentX.sort(function(a, b){return a - b});
-        currentY.sort(function(a, b){return a - b});
-        illegalSquares.sort(function(a, b){return a - b});
-        console.log(currentX);
-        console.log(currentY);
-        isWinner();
     }
 })
 
@@ -359,25 +325,19 @@ TicTacToeBox9.addEventListener('click', e => {
         console.log("Place mark");
         if (userStatus) {
             placeX(9, "nine");
-            if (checkAiGame) {
+            if (checkAiGame && !gameOver) {
                 let move = randomMove();
                 let id = toString(move);
                 placeCircle(move, id);
             }
         } else { 
             placeCircle(9, "nine");
-            if (checkAiGame) {
+            if (checkAiGame && !gameOver) {
                 let move = randomMove();
                 let id = toString(move);
                 placeX(move, id);
             }
         }
-        currentX.sort(function(a, b){return a - b});
-        currentY.sort(function(a, b){return a - b});
-        illegalSquares.sort(function(a, b){return a - b});
-        console.log(currentX);
-        console.log(currentY);
-        isWinner();
     }
 })
 
@@ -411,6 +371,7 @@ function newGame() {
     possibleSquares = [1, 2, 3, 4, 5, 6, 7, 8, 9];
     userStatus = true;
     checkAiGame = false; 
+    gameOver = false;
     document.getElementById("currentPlayer").innerHTML = defaultPlayer;
 }
 
@@ -445,11 +406,13 @@ function checkSolution() {
             console.log("Player X wins!");
             playerX++;
             document.getElementById("scoreX").innerHTML = "X: " + playerX;
+            gameOver = true;
             newGame();
         } else if (checkArrayEqual(currentY, winningCombinations[i])) {
             console.log("Player O wins!");
             playerY++;
             document.getElementById("scoreY").innerHTML = "Y: " + playerY;
+            gameOver = true;
             newGame();
         } 
     }    
