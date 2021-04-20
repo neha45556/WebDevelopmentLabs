@@ -12,6 +12,10 @@ var winningCombinations = [
     [3, 5, 7]
 ];
 
+let possibleSquares = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+let illegalSquares = new Array();
+
+let checkAiGame = false; 
 let userStatus = true;
 let defaultPlayer = "X";  
 // If userStatus is true place X
@@ -37,213 +41,344 @@ var TicTacToeBox7 = document.getElementById('seven');
 var TicTacToeBox8 = document.getElementById('eight');
 var TicTacToeBox9 = document.getElementById('nine');
 
-
-TicTacToeBox1.addEventListener('click', e => {
-    console.log("Place mark");
-    var element = document.getElementById("one");
-    if (userStatus) {
-        element.classList.add("markX");
-        userStatus = false;
-        document.getElementById("currentPlayer").innerHTML = "O";
-        console.log(userStatus);
-        currentX.push(1);
-    } else { 
-        element.classList.add("markCircle");
-        userStatus = true;
-        document.getElementById("currentPlayer").innerHTML = "X";
-        currentPlayer = "X"
-        console.log(userStatus);
-        currentY.push(1);
+function randomMove() {
+    // var tempArray = new Array();
+    for (var i = 0; i < possibleSquares.length; i++) {
+        if (illegalSquares.includes(possibleSquares[i])) {
+            possibleSquares.splice(i, 1);
+        }
     }
-    currentX.sort(function(a, b){return a - b});
-    currentY.sort(function(a, b){return a - b});
-    console.log(currentX);
-    console.log(currentY);
-    isWinner();
+    let aiMove = possibleSquares[Math.floor(Math.random()*possibleSquares.length)];
+    return aiMove;
+}
+
+function toString(num) {
+    if (num == 1) {
+        return "one";
+    }
+    else if (num == 2) {
+        return "two";
+    }
+    else if (num == 3) {
+        return "three";
+    }
+    else if (num == 4) {
+        return "four";
+    }
+    else if (num == 5) {
+        return "five";
+    }   
+    else if (num == 6) {
+        return "six";
+    }
+    else if (num == 7) {
+        return "seven";
+    }
+    else if (num == 8) {
+        return "eight";
+    }
+    else {
+        return "nine";
+    }
+}
+function placeX(location, id) {
+    var element = document.getElementById(id);
+    element.classList.add("markX");
+    userStatus = false;
+    document.getElementById("currentPlayer").innerHTML = "O";
+    console.log(userStatus);
+    currentX.push(location);
+    illegalSquares.push(location);
+}
+
+function placeCircle(location, id) {
+    var element = document.getElementById(id);
+    element.classList.add("markCircle");
+    userStatus = true;
+    document.getElementById("currentPlayer").innerHTML = "X";
+    console.log(userStatus);
+    currentY.push(location);
+    illegalSquares.push(location);
+}
+function aiGame() {
+    if (illegalSquares.length == 0) {
+        console.log("Set aiGame to true");
+        checkAiGame = true; 
+        console.log(checkAiGame);
+    }
+    else {
+        console.log("Game in progress. Please restart or start a new game to play against AI.");
+    }
+ 
+}
+TicTacToeBox1.addEventListener('click', e => {
+    if (illegalSquares.includes(1)) {
+        console.log("Illegal Square choose again.");
+    }
+    else {
+        console.log("Place mark");
+        if (userStatus) {
+            placeX(1, "one");
+            if (checkAiGame) {
+                let move = randomMove();
+                let id = toString(move);
+                placeCircle(move, id);
+            }
+        } else { 
+            placeCircle(1, "one");
+            if (checkAiGame) {
+                let move = randomMove();
+                let id = toString(move);
+                placeX(move, id);
+            }
+        }
+        currentX.sort(function(a, b){return a - b});
+        currentY.sort(function(a, b){return a - b});
+        illegalSquares.sort(function(a, b){return a - b});
+        console.log(currentX);
+        console.log(currentY);
+        isWinner();
+    }   
 })
 
 TicTacToeBox2.addEventListener('click', e => {
-    console.log("Place mark");
-    var element = document.getElementById("two");
-    if (userStatus) {
-        element.classList.add("markX");
-        userStatus = false;
-        document.getElementById("currentPlayer").innerHTML = "O";
-        console.log(userStatus);
-        currentX.push(2);
-    } else { 
-        element.classList.add("markCircle");
-        userStatus = true;
-        document.getElementById("currentPlayer").innerHTML = "X";
-        console.log(userStatus);
-        currentY.push(2);
+    if (illegalSquares.includes(2)) {
+        console.log("Illegal Square choose again.");
     }
-    currentX.sort(function(a, b){return a - b});
-    currentY.sort(function(a, b){return a - b});
-    console.log(currentX);
-    console.log(currentY);
-    isWinner()
+    else {
+        console.log("Place mark");
+        if (userStatus) {
+            placeX(2, "two");
+            if (checkAiGame) {
+                let move = randomMove();
+                let id = toString(move);
+                placeCircle(move, id);
+            }
+        } else { 
+            placeCircle(2, "two");
+            if (checkAiGame) {
+                let move = randomMove();
+                let id = toString(move);
+                placeX(move, id);
+            }
+        }
+        currentX.sort(function(a, b){return a - b});
+        currentY.sort(function(a, b){return a - b});
+        illegalSquares.sort(function(a, b){return a - b});
+        console.log(currentX);
+        console.log(currentY);
+        isWinner();
+    }
 })
 
 TicTacToeBox3.addEventListener('click', e => {
-    console.log("Place mark");
-    var element = document.getElementById("three");
-    if (userStatus) {
-        element.classList.add("markX");
-        userStatus = false;
-        document.getElementById("currentPlayer").innerHTML = "O";
-        console.log(userStatus);
-        currentX.push(3);
-    } else { 
-        element.classList.add("markCircle");
-        userStatus = true;
-        document.getElementById("currentPlayer").innerHTML = "X";
-        console.log(userStatus);
-        currentY.push(3);
+    if (illegalSquares.includes(3)) {
+        console.log("Illegal Square choose again.");
     }
-    currentX.sort(function(a, b){return a - b});
-    currentY.sort(function(a, b){return a - b});
-    console.log(currentX);
-    console.log(currentY);
-    isWinner()
+    else {
+        console.log("Place mark");
+        if (userStatus) {
+            placeX(3, "three");
+            if (checkAiGame) {
+                let move = randomMove();
+                let id = toString(move);
+                placeCircle(move, id);
+            }
+        } else { 
+            placeCircle(3, "three");
+            if (checkAiGame) {
+                let move = randomMove();
+                let id = toString(move);
+                placeX(move, id);
+            }
+        }
+        currentX.sort(function(a, b){return a - b});
+        currentY.sort(function(a, b){return a - b});
+        illegalSquares.sort(function(a, b){return a - b});
+        console.log(currentX);
+        console.log(currentY);
+        isWinner();
+    }
 })
 
 TicTacToeBox4.addEventListener('click', e => {
-    console.log("Place mark");
-    var element = document.getElementById("four");
-    if (userStatus) {
-        element.classList.add("markX");
-        userStatus = false;
-        document.getElementById("currentPlayer").innerHTML = "O";
-        console.log(userStatus);
-        currentX.push(4);
-    } else { 
-        element.classList.add("markCircle");
-        userStatus = true;
-        document.getElementById("currentPlayer").innerHTML = "X";
-        console.log(userStatus);
-        currentY.push(4);
+    if (illegalSquares.includes(4)) {
+        console.log("Illegal Square choose again.");
     }
-    currentX.sort(function(a, b){return a - b});
-    currentY.sort(function(a, b){return a - b});
-    console.log(currentX);
-    console.log(currentY);
-    isWinner();
+    else {
+        console.log("Place mark");
+        if (userStatus) {
+            placeX(4, "four");
+            if (checkAiGame) {
+                let move = randomMove();
+                let id = toString(move);
+                placeCircle(move, id);
+            }
+        } else { 
+            placeCircle(4, "four");
+            if (checkAiGame) {
+                let move = randomMove();
+                let id = toString(move);
+                placeX(move, id);
+            }
+        }
+        currentX.sort(function(a, b){return a - b});
+        currentY.sort(function(a, b){return a - b});
+        illegalSquares.sort(function(a, b){return a - b});
+        console.log(currentX);
+        console.log(currentY);
+        isWinner();
+    }
 })
 
 TicTacToeBox5.addEventListener('click', e => {
-    console.log("Place mark");
-    var element = document.getElementById("five");
-    if (userStatus) {
-        element.classList.add("markX");
-        userStatus = false;
-        document.getElementById("currentPlayer").innerHTML = "O";
-        console.log(userStatus);
-        currentX.push(5);
-    } else { 
-        element.classList.add("markCircle");
-        userStatus = true;
-        document.getElementById("currentPlayer").innerHTML = "X";
-        console.log(userStatus);
-        currentY.push(5);
+    if (illegalSquares.includes(5)) {
+        console.log("Illegal Square choose again.");
     }
-    currentX.sort(function(a, b){return a - b});
-    currentY.sort(function(a, b){return a - b});
-    console.log(currentX);
-    console.log(currentY);
-    isWinner();
+    else {
+        console.log("Place mark");
+        if (userStatus) {
+            placeX(5, "five");
+            if (checkAiGame) {
+                let move = randomMove();
+                let id = toString(move);
+                placeCircle(move, id);
+            }
+        } else { 
+            placeCircle(5, "five");
+            if (checkAiGame) {
+                let move = randomMove();
+                let id = toString(move);
+                placeX(move, id);
+            }
+        }
+        currentX.sort(function(a, b){return a - b});
+        currentY.sort(function(a, b){return a - b});
+        illegalSquares.sort(function(a, b){return a - b});
+        console.log(currentX);
+        console.log(currentY);
+        isWinner();
+    }
 })
 
 TicTacToeBox6.addEventListener('click', e => {
-    console.log("Place mark");
-    var element = document.getElementById("six");
-    if (userStatus) {
-        element.classList.add("markX");
-        userStatus = false;
-        document.getElementById("currentPlayer").innerHTML = "O";
-        console.log(userStatus);
-        currentX.push(6);
-    } else { 
-        element.classList.add("markCircle");
-        userStatus = true;
-        document.getElementById("currentPlayer").innerHTML = "X";
-        console.log(userStatus);
-        currentY.push(6);
+    if (illegalSquares.includes(6)) {
+        console.log("Illegal Square choose again.");
     }
-    currentX.sort(function(a, b){return a - b});
-    currentY.sort(function(a, b){return a - b});
-    console.log(currentX);
-    console.log(currentY);
-    isWinner();
+    else {
+        console.log("Place mark");
+        if (userStatus) {
+            placeX(6, "six");
+            if (checkAiGame) {
+                let move = randomMove();
+                let id = toString(move);
+                placeCircle(move, id);
+            }
+        } else { 
+            placeCircle(6, "six");
+            if (checkAiGame) {
+                let move = randomMove();
+                let id = toString(move);
+                placeX(move, id);
+            }
+        }
+        currentX.sort(function(a, b){return a - b});
+        currentY.sort(function(a, b){return a - b});
+        illegalSquares.sort(function(a, b){return a - b});
+        console.log(currentX);
+        console.log(currentY);
+        isWinner();
+    }
 })
 
 TicTacToeBox7.addEventListener('click', e => {
-    console.log("Place mark");
-    var element = document.getElementById("seven");
-    if (userStatus) {
-        element.classList.add("markX");
-        userStatus = false;
-        document.getElementById("currentPlayer").innerHTML = "O";
-        console.log(userStatus);
-        currentX.push(7);
-    } else { 
-        element.classList.add("markCircle");
-        userStatus = true;
-        document.getElementById("currentPlayer").innerHTML = "X";
-        console.log(userStatus);
-        currentY.push(7);
+    if (illegalSquares.includes(7)) {
+        console.log("Illegal Square choose again.");
     }
-    currentX.sort(function(a, b){return a - b});
-    currentY.sort(function(a, b){return a - b});
-    console.log(currentX);
-    console.log(currentY);
-    isWinner();
+    else {
+        console.log("Place mark");
+        if (userStatus) {
+            placeX(7, "seven");
+            if (checkAiGame) {
+                let move = randomMove();
+                let id = toString(move);
+                placeCircle(move, id);
+            }
+        } else { 
+            placeCircle(7, "seven");
+            if (checkAiGame) {
+                let move = randomMove();
+                let id = toString(move);
+                placeX(move, id);
+            }
+        }
+        currentX.sort(function(a, b){return a - b});
+        currentY.sort(function(a, b){return a - b});
+        illegalSquares.sort(function(a, b){return a - b});
+        console.log(currentX);
+        console.log(currentY);
+        isWinner();
+    }
 })
 
 TicTacToeBox8.addEventListener('click', e => {
-    console.log("Place mark");
-    var element = document.getElementById("eight");
-    if (userStatus) {
-        element.classList.add("markX");
-        userStatus = false;
-        document.getElementById("currentPlayer").innerHTML = "O";
-        console.log(userStatus);
-        currentX.push(8);
-    } else { 
-        element.classList.add("markCircle");
-        userStatus = true;
-        document.getElementById("currentPlayer").innerHTML = "X";
-        console.log(userStatus);
-        currentY.push(8);
+    if (illegalSquares.includes(8)) {
+        console.log("Illegal Square choose again.");
     }
-    currentX.sort(function(a, b){return a - b});
-    currentY.sort(function(a, b){return a - b});
-    console.log(currentX);
-    console.log(currentY);
-    isWinner();
+    else {
+        console.log("Place mark");
+        if (userStatus) {
+            placeX(8, "eight");
+            if (checkAiGame) {
+                let move = randomMove();
+                let id = toString(move);
+                placeCircle(move, id);
+            }
+        } else { 
+            placeCircle(8, "eight");
+            if (checkAiGame) {
+                let move = randomMove();
+                let id = toString(move);
+                placeX(move, id);
+            }
+        }
+        currentX.sort(function(a, b){return a - b});
+        currentY.sort(function(a, b){return a - b});
+        illegalSquares.sort(function(a, b){return a - b});
+        console.log(currentX);
+        console.log(currentY);
+        isWinner();
+    }
 })
 
 TicTacToeBox9.addEventListener('click', e => {
-    console.log("Place mark");
-    var element = document.getElementById("nine");
-    if (userStatus) {
-        element.classList.add("markX");
-        userStatus = false;
-        document.getElementById("currentPlayer").innerHTML = "O";
-        console.log(userStatus);
-        currentX.push(9);
-    } else { 
-        element.classList.add("markCircle");
-        userStatus = true;
-        document.getElementById("currentPlayer").innerHTML = "X";
-        console.log(userStatus);
-        currentY.push(9);
+    if (illegalSquares.includes(9)) {
+        console.log("Illegal Square choose again.");
     }
-    currentX.sort(function(a, b){return a - b});
-    currentY.sort(function(a, b){return a - b});
-    console.log(currentX);
-    console.log(currentY);
-    isWinner();
+    else {
+        console.log("Place mark");
+        if (userStatus) {
+            placeX(9, "nine");
+            if (checkAiGame) {
+                let move = randomMove();
+                let id = toString(move);
+                placeCircle(move, id);
+            }
+        } else { 
+            placeCircle(9, "nine");
+            if (checkAiGame) {
+                let move = randomMove();
+                let id = toString(move);
+                placeX(move, id);
+            }
+        }
+        currentX.sort(function(a, b){return a - b});
+        currentY.sort(function(a, b){return a - b});
+        illegalSquares.sort(function(a, b){return a - b});
+        console.log(currentX);
+        console.log(currentY);
+        isWinner();
+    }
 })
 
 
@@ -272,7 +407,10 @@ function newGame() {
 
     currentX = [];
     currentY = [];
+    illegalSquares= [];
+    possibleSquares = [1, 2, 3, 4, 5, 6, 7, 8, 9];
     userStatus = true;
+    checkAiGame = false; 
     document.getElementById("currentPlayer").innerHTML = defaultPlayer;
 }
 
@@ -316,16 +454,7 @@ function checkSolution() {
         } 
     }    
 }
-// const equalsIgnoreOrder = (a, b) => {
-//     if (a.length !== b.length) return false;
-//     const uniqueValues = new Set([...a, ...b]);
-//     for (const v of uniqueValues) {
-//         const aCount = a.filter(e => e === v).length;
-//         const bCount = b.filter(e => e === v).length;
-//         if (aCount !== bCount) return false;
-//     }
-//     return true;
-// }
+
 function checkArrayEqual(playerMoves, winningCombination) {
     if (playerMoves === winningCombination) return true;
     if (playerMoves == null || winningCombination == null) return false;
@@ -342,15 +471,3 @@ function checkArrayEqual(playerMoves, winningCombination) {
     }
     return false;
 }
-// function placeMark() {
-//     console.log("hello");
-//     var element = document.getElementById("one");
-//     if (userStatus) {
-//         element.classList.add("markX");
-//         console.log("1");
-//     } else { 
-//         element.classList.add("markCircle");
-//         console.log("2");
-//     }
-//     console.log("3");
-// }
