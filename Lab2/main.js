@@ -122,6 +122,7 @@ function aiGame() {
     else {
         console.log("Game in progress. Please restart or start a new game to play against AI.");
     }
+    alert("You are playing the Computer");
  
 }
 TicTacToeBox1.addEventListener('click', e => {
