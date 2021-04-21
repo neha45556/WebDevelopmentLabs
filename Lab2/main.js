@@ -44,7 +44,6 @@ var TicTacToeBox8 = document.getElementById('eight');
 var TicTacToeBox9 = document.getElementById('nine');
 
 function randomMove() {
-    // var tempArray = new Array();
     for (var i = 0; i < possibleSquares.length; i++) {
         if (illegalSquares.includes(possibleSquares[i])) {
             possibleSquares.splice(i, 1);
